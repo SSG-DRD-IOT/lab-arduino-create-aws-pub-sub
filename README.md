@@ -16,3 +16,4 @@ You will need to have completed the following steps:
 Arduino Create has the AWS IoT Device SDK buit in. You will use this SDK to connect your UP2 board to AWS IoT. We will be editing the Pub/Sub example.
 
 Load the example through Examples -> From Libraries -> AWS IoT Device SDK -> PubSub
+![](./images/pubsub-example.png)
