@@ -11,9 +11,19 @@ You will need to have completed the following steps:
 *	Complete the [Sensors and Actuators](https://ssg-drd-iot.github.io/toc-sensors)
 * Complete the [AWS IoT Setup](https://ssg-drd-iot.github.io/lab-aws-iot)
 
-## Load Pub/Sub example 
+## Load Pub/Sub Example 
 
 Arduino Create has the AWS IoT Device SDK buit in. You will use this SDK to connect your UP2 board to AWS IoT. We will be editing the Pub/Sub example.
 
 Load the example through Examples -> From Libraries -> AWS IoT Device SDK -> PubSub
 ![](./images/pubsub-example.png)
+
+## Configure Pub/Sub Example
+
+You will need to change the **ENDPOINT, CLIENT_ID, and THING_NAME** on lines 43-45 to those given to you by AWS IoT. To find the **ENDPOINT** navigate to the AWS Console -> AWS IoT -> Manage -> Things 
+
+![](./images/aws-things.png)
+
+Select the Thing that you configured and naviagte to **Interact**. The rest API endpoint is the **ENDPOINT** you will use. 
+
+![](./images/aws-things-interact.png)
