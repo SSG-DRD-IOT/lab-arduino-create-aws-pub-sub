@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+[AWS Alliance Workshop](https://github.com/SSG-DRD-IOT/Alliance-AWS-Workshop) > [Arduino Create AWS PubSub Lab](lab-arduino-create-aws-pub-sub.md)
 
-You can use the [editor on GitHub](https://github.com/SSG-DRD-IOT/lab-arduino-create-aws-pub-sub/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Arduino Create - AWS Pub/Sub Lab
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This lab will walk you through setting up a basic data connection between your UP2 Board and AWS IoT using Arduino Create. 
 
-### Markdown
+### Prerequisites
+You will need to have completed the following steps:
+*	Setup UP2 board
+*	Connect UP2 board to Arduino Create 
+*	Complete the [Sensors and Actuators](https://ssg-drd-iot.github.io/toc-sensors)
+* Complete the [AWS IoT Setup](https://ssg-drd-iot.github.io/lab-aws-iot)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Load Pub/Sub example 
 
-```markdown
-Syntax highlighted code block
+Arduino Create has the AWS IoT Device SDK buit in. You will use this SDK to connect your UP2 board to AWS IoT. We will be editing the Pub/Sub example.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SSG-DRD-IOT/lab-arduino-create-aws-pub-sub/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Load the example through Examples -> From Libraries -> AWS IoT Device SDK -> PubSub
