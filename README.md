@@ -176,4 +176,4 @@ Navigate to AWS IoT MQTT Client and subscribe to "#" if you are not already subs
 ![](./images/rotary-mqtt.png)
 
 ## End of Lab
-You should now have an understanding of how to send both simple strings and sensor data up to AWS IoT from your UP2 board. Please return to [AWS Alliance Workshop](https://github.com/SSG-DRD-IOT/Alliance-AWS-Workshop). 
+You should now have an understanding of how to send both simple strings and sensor data up to AWS IoT from your UP2 board. Please return to the [AWS IoT Lab](https://ssg-drd-iot.github.io/lab-aws-iot/). 
