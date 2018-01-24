@@ -92,7 +92,7 @@ Upload and run your code.
 
 Go back to the AWS IoT MQTT Client. If everything worked properly you should see the following messages in the message queue:
 
-[!](./images/mqtt-sub-output.png)
+![](./images/mqtt-sub-output.png)
 
 The Pub/Sub example published "Hello from SDK" to the "/sdk/test/cpp" topic. You can send any JSON data this way to any AWS IoT Topic. 
 
@@ -113,7 +113,58 @@ Go to your PubSub example code. You will be changing this code in order to have 
 The first thing to add are the pin definitions, add the following lines to the top of the code block:
 
 ```C++
-int sensorPin = 512;   
-int ledPin = 516;    
+int sensorPin = 512;     
 int sensorValue = 0;
+```
+
+Next add the following definitions inside the **void setup()** loop on line 278
+
+```C++
+  // add the Grove Pi+ sub-platform
+  mraa_add_subplatform(MRAA_GROVEPI, "0");
+```
+
+Now change the "Hello from SDK" string to the analog sensor value. Change:
+
+```C++
+util::String payload = "Hello from SDK : ";
+```
+
+to 
+
+```C++
+util::String payload = std::to_string(analogRead(sensorPin));
+```
+
+also delete:
+
+```C++
+payload.append(std::to_string(itr));
+```
+At the end of this **do** loop there is: 
+
+```C++
+while (++itr <= msg_count && (ResponseCode::SUCCESS == rc || ResponseCode::ACTION_QUEUE_FULL == rc));
+```
+
+To keep the code publishing data continuously change this line to:
+
+```C++
+while (ResponseCode::SUCCESS == rc || ResponseCode::ACTION_QUEUE_FULL == rc);
+```
+
+Finally you should reduce the rate at which the code publishes to AWS IoT. At the bottom of the code block change:
+
+```C++
+void loop(){
+  delay(100);
+}
+```
+
+to
+
+```C++
+void loop(){
+  delay(500);
+}
 ```
