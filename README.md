@@ -37,15 +37,43 @@ There are a few ways to load these certificates into your example:
   * Paste the contents into the "secret" tab in the Arduino Create project 
   * Copy the certificate file onto the UP2 board and point to the file location in the main code body
 
+### Paste into Secret Tab
+
 Pasting the certificate directly into your code is not secure if you ever share your code. The secret tab will be blank when you share your code so it is a bit more secure. Before pasting the contents of the certificates they need to be properly formatted. In order to do so run the following command in the directory containing your certificates:
 
 ```
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' your-certificate.crt
-
 ```
 
 ![](./images/awk-output.png)
 
-Run this command on XX-private.pem.key, XXX-certificate.pem.crt, and root-ca.pem and paste the outputs into the appropriate boxes in the secret tab. 
+Run this command on XXX-private.pem.key, XXX-certificate.pem.crt, and root-ca.pem and paste the outputs into the appropriate boxes in the secret tab. 
 
 ![](./images/secret-tab.png)
+
+### Upload to UP2 Board
+
+instead you can upload your certificates to the UP2 board directly and then point to the files in your code. **You do not need to paste into the secret tab and upload the certificates**. To do this use **scp** from the command line, or any other file transfer program you are familiar with. To use **scp** open a terminal and enter the following commands inside the directory with your certificates:
+
+```
+scp -r XXX-private.pem.key upsquared@IP.OF.UP2.Board:/home/upsquared
+```
+
+Do this for XXX-certificate.pem.crt and root-ca.pem as well - this will transfer the certificates onto the UP@ board to the /home/upsquared directory. 
+
+You need to now edit **DEFAULTSAMPLECONFIG** on line 52 of the main code to point the code to the correct file locations. 
+change:
+
+```
+\"root_ca_relative_path\": \"rootCA.pem\",  \"device_certificate_relative_path\": \"34534543-certificate.pem.crt\",  \"device_private_key_relative_path\": \"234234234-private.pem.key\",
+```
+
+to 
+
+```
+\"/home/upsquared/": \"root-ca.pem\",  \"/home/upsquared/": \"XXX-certificate.pem.crt\",  \"/home/upsquared/": \"XXX-private.pem.key\",
+```
+
+Make sure to enter the correct certificate names!
+
+## Run Pub/Sub example
