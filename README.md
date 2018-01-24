@@ -77,3 +77,25 @@ to
 Make sure to enter the correct certificate names!
 
 ## Run Pub/Sub example
+
+Now you can run your Pub/Sub Example.
+
+First go to the AWS IoT Console, Open the MQTT Test Client and enter "#" as the subsription topic. "#" means "all topics".
+
+![](./images/mqtt-sub.png)
+
+Go back to your Arduino Create environment and open the Serial Monitor on the left hand panel. The monitor will give you output from the Pub/Sub example. 
+
+![](./images/monitor.png)
+
+Upload and run your code. 
+
+Go back to the AWS IoT MQTT Client. If everything worked properly you should see the following messages in the message queue:
+
+[!](./images/mqtt-sub-output.png)
+
+The Pub/Sub example published "Hello from SDK" to the "/sdk/test/cpp" topic. You can send any JSON data this way to any AWS IoT Topic. 
+
+## Send Sensor Data to AWS IoT
+
+Now that you have a good feel for how to send data up to AWS IoT lets replace "Hello from SDK" with some sensor readings.
