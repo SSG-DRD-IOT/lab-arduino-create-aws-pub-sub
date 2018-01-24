@@ -168,3 +168,12 @@ void loop(){
   delay(500);
 }
 ```
+
+Upload and run the code. **make sure that you are not running any other binaries that are using MQTT!**
+
+Navigate to AWS IoT MQTT Client and subscribe to "#" if you are not already subscribed. You should see the sensor reading come in on topic **/sdk/test/cpp**
+
+![](./images/rotary-mqtt.png)
+
+## End of Lab
+You should now have an understanding of how to send both simple strings and sensor data up to AWS IoT from your UP2 board. Please return to [AWS Alliance Workshop](https://github.com/SSG-DRD-IOT/Alliance-AWS-Workshop). 
