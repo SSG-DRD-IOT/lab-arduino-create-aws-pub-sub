@@ -99,3 +99,21 @@ The Pub/Sub example published "Hello from SDK" to the "/sdk/test/cpp" topic. You
 ## Send Sensor Data to AWS IoT
 
 Now that you have a good feel for how to send data up to AWS IoT lets replace "Hello from SDK" with some sensor readings.
+
+Refer back to examples in **Examples -> From Libraries -> UP Squared Grove IoT Kit** to get sample code for reading in sensor data. 
+
+We will use **GroveRotaryAngle** example code to send rotary angle values up to AWS IoT.
+
+**You should still have the Grove Rotary Angle sensor plugged into your UP2 Board**
+
+### Set Pins
+
+Go to your PubSub example code. You will be changing this code in order to have it continuously send rotary angle data to AWS IoT. 
+
+The first thing to add are the pin definitions, add the following lines to the top of the code block:
+
+```C++
+int sensorPin = 512;   
+int ledPin = 516;    
+int sensorValue = 0;
+```
